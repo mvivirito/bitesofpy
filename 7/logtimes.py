@@ -1,6 +1,8 @@
 from datetime import datetime
+from datetime import timedelta
 import os
 import urllib.request
+import re
 
 SHUTDOWN_EVENT = 'Shutdown initiated'
 
@@ -10,6 +12,7 @@ urllib.request.urlretrieve('http://bit.ly/2AKSIbf', logfile)
 
 with open(logfile) as f:
     loglines = f.readlines()
+
 
 
 # for you to code:
@@ -22,7 +25,14 @@ def convert_to_datetime(line):
        returns:
        datetime(2014, 7, 3, 23, 27, 51)
     """
-    pass
+    #   get rid of that pesky T
+    x = line.replace('T', ' ')
+    #string dates are now in this format: 2014-07-03 23:24:31
+    match = re.search(r'\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}', x)
+
+    #convert to datetime objects
+    date = datetime.strptime(match.group(0), '%Y-%m-%d %H:%M:%S' )
+    return(date)
 
 
 def time_between_shutdowns(loglines):
@@ -31,4 +41,15 @@ def time_between_shutdowns(loglines):
        calculate the timedelta between the first and last one.
        Return this datetime.timedelta object.
     """
-    pass
+    shutdownlist = []
+    for x in loglines:
+        if (x.find(SHUTDOWN_EVENT) != -1):
+            item = convert_to_datetime(x)
+            shutdownlist.append(item)
+    timebetween = (shutdownlist[1] - shutdownlist[0])
+    return(timebetween)
+
+
+
+
+

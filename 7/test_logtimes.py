@@ -16,3 +16,5 @@ def test_time_between_events():
     diff = time_between_shutdowns(loglines)
     assert type(diff) == timedelta
     assert str(diff) == '0:03:31'
+
+
