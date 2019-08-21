@@ -16,8 +16,9 @@ def load_dictionary():
 
 def clean_string(wordinput):
     table = str.maketrans({key: None for key in punc})
-    return(wordinput.translate(table))
-
+    word = (wordinput.translate(table))
+    word = word.replace(' ', '')
+    return(word)
 
 def reverse_string(wordinput):
     characters = []
@@ -34,9 +35,10 @@ def is_palindrome(wordin):
        Case insensitive, so Madam is valid too.
        It should work for phrases too so strip all but alphanumeric chars.
        So "No 'x' in 'Nixon'" should pass (see tests for more)"""
-    wordin = clean_string(wordin)
-    if wordin == reverse_string(wordin):
-        return(wordin)
+    origword = wordin
+    word = clean_string(wordin)
+    if word == reverse_string(word):
+        return(origword)
 
 def get_longest_palindrome(words=None):
     """Given a list of words return the longest palindrome
@@ -44,16 +46,20 @@ def get_longest_palindrome(words=None):
        to populate the words list"""
     if words == None:
         words = load_dictionary()
-        
-    longest = ""  
+
+    longest = ""
     length = 0
-    
+
     for word in words:
         if (is_palindrome(word) != None) and (len(word) > length):
             longest = word
-            length = len(word) 
-        
+            length = len(word)
+
     return(longest)
 
 
 
+
+
+new_longest = 'A car, a man, a maraca.'
+print(clean_string(new_longest))
