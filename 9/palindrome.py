@@ -19,6 +19,7 @@ def clean_string(wordinput):
     word = (wordinput.translate(table))
     word = word.lower()
     word = word.replace(' ', '')
+    word = word.replace('’', '')
     return(word)
 
 def reverse_string(wordinput):
@@ -57,5 +58,4 @@ def get_longest_palindrome(words=None):
 
     return(longest)
 
-print(is_palindrome("A Toyota's a Toyota."))
 
