@@ -35,10 +35,9 @@ def is_palindrome(wordin):
        Case insensitive, so Madam is valid too.
        It should work for phrases too so strip all but alphanumeric chars.
        So "No 'x' in 'Nixon'" should pass (see tests for more)"""
-    origword = wordin
-    word = clean_string(wordin)
-    if word == reverse_string(word):
-        return(True)
+    cleanword = clean_string(wordin)
+    if cleanword == reverse_string(wordin):
+        return(wordin)
 
 def get_longest_palindrome(words=None):
     """Given a list of words return the longest palindrome
@@ -51,7 +50,7 @@ def get_longest_palindrome(words=None):
     length = 0
 
     for word in words:
-        if (is_palindrome(word) == True) and (len(word) > length):
+        if (is_palindrome(word) != None) and (len(word) > length):
             longest = word
             length = len(word)
 
@@ -59,7 +58,3 @@ def get_longest_palindrome(words=None):
 
 
 
-
-
-new_longest = 'A car, a man, a maraca.'
-print(clean_string(new_longest))
