@@ -38,7 +38,7 @@ def is_palindrome(wordin):
        So "No 'x' in 'Nixon'" should pass (see tests for more)"""
     cleanword = clean_string(wordin)
     if cleanword == reverse_string(cleanword):
-        return(wordin)
+        return(cleanword)
 
 def get_longest_palindrome(words=None):
     """Given a list of words return the longest palindrome
@@ -57,5 +57,5 @@ def get_longest_palindrome(words=None):
 
     return(longest)
 
-print(is_palindrome("Aibohphobia"))
+print(is_palindrome("A Toyota's a Toyota."))
 
