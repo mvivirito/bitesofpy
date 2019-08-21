@@ -17,6 +17,7 @@ def load_dictionary():
 def clean_string(wordinput):
     table = str.maketrans({key: None for key in punc})
     word = (wordinput.translate(table))
+    word = word.lower()
     word = word.replace(' ', '')
     return(word)
 
@@ -36,7 +37,7 @@ def is_palindrome(wordin):
        It should work for phrases too so strip all but alphanumeric chars.
        So "No 'x' in 'Nixon'" should pass (see tests for more)"""
     cleanword = clean_string(wordin)
-    if cleanword == reverse_string(wordin):
+    if cleanword == reverse_string(cleanword):
         return(wordin)
 
 def get_longest_palindrome(words=None):
@@ -56,5 +57,5 @@ def get_longest_palindrome(words=None):
 
     return(longest)
 
-
+print(is_palindrome("Aibohphobia"))
 
