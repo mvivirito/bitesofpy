@@ -23,3 +23,5 @@ def test_get_longest_palindrome():
     new_longest = 'A car, a man, a maraca.'
     words = list(words) + [new_longest]
     assert get_longest_palindrome(words) == new_longest
+
+

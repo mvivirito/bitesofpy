@@ -38,7 +38,7 @@ def is_palindrome(wordin):
     origword = wordin
     word = clean_string(wordin)
     if word == reverse_string(word):
-        return(origword)
+        return(true)
 
 def get_longest_palindrome(words=None):
     """Given a list of words return the longest palindrome
@@ -51,7 +51,7 @@ def get_longest_palindrome(words=None):
     length = 0
 
     for word in words:
-        if (is_palindrome(word) != None) and (len(word) > length):
+        if (is_palindrome(word) = true) and (len(word) > length):
             longest = word
             length = len(word)
 
