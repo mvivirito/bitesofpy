@@ -42,13 +42,18 @@ def get_longest_palindrome(words=None):
     """Given a list of words return the longest palindrome
        If called without argument use the load_dictionary helper
        to populate the words list"""
-    pass
+    if words == None:
+        words = load_dictionary()
+        
+    longest = ""  
+    length = 0
+    
+    for word in words:
+        if (is_palindrome(word) != None) and (len(word) > length):
+            longest = word
+            length = len(word) 
+        
+    return(longest)
 
 
-words = load_dictionary()
 
-
-for word in words:
-    palin = is_palindrome(word)
-    if palin != None:
-        print(palin)
