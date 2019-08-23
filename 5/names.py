@@ -2,7 +2,7 @@ import re
 
 NAMES = ['arnold schwarzenegger', 'alec baldwin', 'bob belderbos',
          'julian sequeira', 'sandra bullock', 'keanu reeves',
-         'julbob pybites', 'bob belderbos', 'julian sequeira',
+         'j pybites', 'bob belderbos', 'julian sequeira',
          'al pacino', 'brad pitt', 'matt damon', 'brad pitt']
 
 
@@ -43,10 +43,9 @@ def shortest_first_name(names):
             shortest = name[0]
         else:
             if len(name[0]) > len(shortest):
-                break
+                continue
             else:
                 shortest = name[0]
     return(shortest)
 
-print(shortest_first_name(NAMES))  
 
