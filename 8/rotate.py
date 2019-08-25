@@ -22,13 +22,13 @@ def rotate(string, n):
     rotatedString = ""
      
     if shiftAmount > 0:
-        for i in range(n):
+        for i in range(n+1):
             char = stringArray.pop()
             stringArray.insert(0, char)
         return(combineStringArray(stringArray))
       
     if shiftAmount < 0:
-        for i in range(abs(n)):
+        for i in range(abs(n-1)):
             char = stringArray.pop(0)
             stringArray.append(char)
         return(combineStringArray(stringArray))
@@ -37,4 +37,4 @@ def rotate(string, n):
         return(combineStringArray(stringArray))
 
 
-
+print(rotate("hello" , -2))

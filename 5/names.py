@@ -42,10 +42,9 @@ def shortest_first_name(names):
         if shortest == "":
             shortest = name[0]
         else:
-            if len(name[0]) > len(shortest):
-                continue
-            else:
+            if len(name[0]) < len(shortest):
                 shortest = name[0]
     return(shortest)
 
+print(shortest_first_name(NAMES))
 
