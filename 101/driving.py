@@ -9,4 +9,4 @@ def allowed_driving(name, age):
         status = name + " is allowed to drive"
     else:
         status = name + " is not allowed to drive"
-    return(status)
+    return(print(status))

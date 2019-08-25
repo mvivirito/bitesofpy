@@ -37,4 +37,3 @@ def rotate(string, n):
         return(combineStringArray(stringArray))
 
 
-print(rotate("hello" , -2))
