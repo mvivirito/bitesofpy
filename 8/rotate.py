@@ -28,7 +28,7 @@ def rotate(string, n):
         return(combineStringArray(stringArray))
       
     if shiftAmount < 0:
-        for i in range(abs(n-1)):
+        for i in range(abs(n)+1):
             char = stringArray.pop(0)
             stringArray.append(char)
         return(combineStringArray(stringArray))
@@ -37,4 +37,3 @@ def rotate(string, n):
         return(combineStringArray(stringArray))
 
 
-print(rotate("hello" , -2))
